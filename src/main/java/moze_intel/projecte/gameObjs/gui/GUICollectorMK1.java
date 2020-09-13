@@ -57,7 +57,8 @@ public class GUICollectorMK1 extends GuiContainer
 		this.drawTexturedModalRect(x + 64, y + 58, 0, 166, progress, 10);
 		
 		//Fuel Progress. Max is 24.
-		progress = tile.getFuelProgressScaled(24);
+		//TODO: long
+		progress = (int) tile.getFuelProgressScaled(24);
 		this.drawTexturedModalRect(x + 138, y + 55 - progress, 176, 38 - progress, 10, progress + 1);
 	}
 }

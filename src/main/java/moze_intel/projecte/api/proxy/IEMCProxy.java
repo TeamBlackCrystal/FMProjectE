@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import javax.annotation.Nonnull;
 import java.util.Map;
 
 public interface IEMCProxy
@@ -14,7 +15,7 @@ public interface IEMCProxy
      * @param stack The stack we want to define EMC for
      * @param value The value to define. Values below 0 are changed to 0
      */
-    void registerCustomEMC(ItemStack stack, int value);
+    void registerCustomEMC(@Nonnull ItemStack stack, long value);
 
     /**
      * Register a custom EMC value for emc calculation that is used in Recipes.
@@ -28,7 +29,7 @@ public interface IEMCProxy
      * @param value
      * @see IConversionProxy#addConversion(int, Object, Map)
      */
-    void registerCustomEMC(Object o, int value);
+    void registerCustomEMC(@Nonnull Object o, long value);
     
     /**
      * Queries the EMC value registry if the given block has an EMC value
@@ -65,7 +66,7 @@ public interface IEMCProxy
      * @param block The block we want to query
      * @return The block's EMC value, or 0 if there is none
      */
-    int getValue(Block block);
+    long getValue(Block block);
 
     /**
      * Queries the EMC value for the provided item
@@ -74,7 +75,7 @@ public interface IEMCProxy
      * @param item The item we want to query
      * @return The item's EMC value, or 0 if there is none
      */
-    int getValue(Item item);
+    long getValue(Item item);
 
     /**
      * Queries the EMC value for the provided stack
@@ -84,5 +85,5 @@ public interface IEMCProxy
      * @param stack The stack we want to query
      * @return The stack's EMC value, or 0 if there is none
      */
-    int getValue(ItemStack stack);
+    long getValue(ItemStack stack);
 }

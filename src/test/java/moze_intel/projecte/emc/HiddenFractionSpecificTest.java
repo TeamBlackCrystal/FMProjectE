@@ -3,13 +3,13 @@ package moze_intel.projecte.emc;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import moze_intel.projecte.emc.arithmetics.FullFractionArithmetic;
-import moze_intel.projecte.emc.arithmetics.HiddenFractionArithmetic;
+import moze_intel.projecte.emc.arithmetics.FullBigFractionArithmetic;
+import moze_intel.projecte.emc.arithmetics.HiddenBigFractionArithmetic;
 import moze_intel.projecte.emc.arithmetics.IValueArithmetic;
 import moze_intel.projecte.emc.collector.IExtendedMappingCollector;
 import moze_intel.projecte.emc.collector.IMappingCollector;
-import moze_intel.projecte.emc.collector.IntToFractionCollector;
-import moze_intel.projecte.emc.generators.FractionToIntGenerator;
+import moze_intel.projecte.emc.collector.LongToBigFractionCollector;
+import moze_intel.projecte.emc.generators.BigFractionToLongGenerator;
 import moze_intel.projecte.emc.generators.IValueGenerator;
 
 import com.google.common.collect.ImmutableMap;
@@ -28,9 +28,9 @@ public class HiddenFractionSpecificTest
 	@Before
 	public void setup()
 	{
-		SimpleGraphMapper<String, Fraction, IValueArithmetic<Fraction>> mapper = new SimpleGraphMapper(new HiddenFractionArithmetic());
-		valueGenerator = new FractionToIntGenerator(mapper);
-		mappingCollector = new IntToFractionCollector(mapper);
+		SimpleGraphMapper<String, Fraction, IValueArithmetic<Fraction>> mapper = new SimpleGraphMapper(new HiddenBigFractionArithmetic());
+		valueGenerator = new BigFractionToLongGenerator(mapper);
+		mappingCollector = new LongToBigFractionCollector(mapper);
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class HiddenFractionSpecificTest
 	@Test
 	public void moltenEnderpearlWithConversionArithmetic()
 	{
-		FullFractionArithmetic fullFractionArithmetic = new FullFractionArithmetic();
+		FullBigFractionArithmetic fullFractionArithmetic = new FullBigFractionArithmetic();
 		mappingCollector.setValueBefore("enderpearl", 1024);
 		mappingCollector.setValueBefore("bucket", 768);
 

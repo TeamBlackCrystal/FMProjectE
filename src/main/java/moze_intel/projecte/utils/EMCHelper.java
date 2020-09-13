@@ -140,7 +140,7 @@ public final class EMCHelper
 		return doesItemHaveEmc(new ItemStack(item));
 	}
 
-	public static int getEmcValue(Block Block)
+	public static long getEmcValue(Block Block)
 	{
 		SimpleStack stack = new SimpleStack(new ItemStack(Block));
 
@@ -152,7 +152,7 @@ public final class EMCHelper
 		return 0;
 	}
 
-	public static int getEmcValue(Item item)
+	public static long getEmcValue(Item item)
 	{
 		SimpleStack stack = new SimpleStack(new ItemStack(item));
 
@@ -167,7 +167,7 @@ public final class EMCHelper
 	/**
 	 * Does not consider stack size
 	 */
-	public static int getEmcValue(ItemStack stack)
+	public static long getEmcValue(ItemStack stack)
 	{
 		if (stack == null)
 		{
@@ -188,7 +188,7 @@ public final class EMCHelper
 
 			if (EMCMapper.mapContains(iStack))
 			{
-				int emc = EMCMapper.getEmcValue(iStack);
+				long emc = EMCMapper.getEmcValue(iStack);
 
 				int relDamage = (stack.getMaxDamage() - stack.getItemDamage());
 
@@ -203,7 +203,7 @@ public final class EMCHelper
 				if (result <= 0)
 				{
 					//Congratulations, big number is big.
-					return emc;
+					return (int) emc;
 				}
 
 				result /= stack.getMaxDamage();

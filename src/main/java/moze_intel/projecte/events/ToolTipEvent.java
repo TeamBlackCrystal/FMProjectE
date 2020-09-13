@@ -106,7 +106,7 @@ public class ToolTipEvent
 		{
 			if (EMCHelper.doesItemHaveEmc(current))
 			{
-				int value = EMCHelper.getEmcValue(current);
+				long value = EMCHelper.getEmcValue(current);
 
 				event.toolTip.add(EnumChatFormatting.YELLOW +
 						StatCollector.translateToLocal("pe.emc.emc_tooltip_prefix") + " " + EnumChatFormatting.WHITE + String.format("%,d", value));

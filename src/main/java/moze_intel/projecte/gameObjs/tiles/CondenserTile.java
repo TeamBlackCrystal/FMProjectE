@@ -82,11 +82,12 @@ public class CondenserTile extends TileEmcDirection implements IInventory, ISide
 
 		if (EMCHelper.doesItemHaveEmc(lock))
 		{
-			int lockEmc = EMCHelper.getEmcValue(lock);
+			long lockEmc = EMCHelper.getEmcValue(lock);
 
 			if (requiredEmc != lockEmc)
 			{
-				requiredEmc = lockEmc;
+				//TODO: long
+				requiredEmc = (int) lockEmc;
 				this.isAcceptingEmc = true;
 			}
 		}
