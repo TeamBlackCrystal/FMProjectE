@@ -35,14 +35,14 @@ public class GUICondenserMK2 extends GuiContainer
 		this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
 
 		int progress = tile.getProgressScaled();
-		this.drawTexturedModalRect(x + 33, y + 10, 0, 235, progress, 10);
+		this.drawTexturedModalRect(x + 33, y + 10, 0, 235, (int) progress, 10);
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int var1, int var2)
 	{
-		long toDisplay = tile.displayEmc > tile.requiredEmc ? tile.requiredEmc : tile.displayEmc;
-		String emc = TransmutationEMCFormatter.EMCFormat(toDisplay);
+		double toDisplay = tile.displayEmc > tile.requiredEmc ? tile.requiredEmc : tile.displayEmc;
+		String emc = TransmutationEMCFormatter.EMCFormat((long) toDisplay);
 		this.fontRendererObj.drawString(emc, 140, 10, 4210752);
 	}
 }

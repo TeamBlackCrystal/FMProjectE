@@ -41,8 +41,8 @@ public class GUICondenser extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int var1, int var2) 
 	{
-		long toDisplay = tile.displayEmc > tile.requiredEmc ? tile.requiredEmc : tile.displayEmc;
-		String emc = TransmutationEMCFormatter.EMCFormat(toDisplay);
+		double toDisplay = tile.displayEmc > tile.requiredEmc ? tile.requiredEmc : tile.displayEmc;
+		String emc = TransmutationEMCFormatter.EMCFormat((long) toDisplay);
 		this.fontRendererObj.drawString(emc, 140, 10, 4210752);
 	}
 }

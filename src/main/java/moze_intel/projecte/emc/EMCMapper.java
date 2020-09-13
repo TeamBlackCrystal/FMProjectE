@@ -40,7 +40,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class EMCMapper 
+public final class EMCMapper
 {
 	public static Map<SimpleStack, Integer> emc = new LinkedHashMap<SimpleStack, Integer>();
 	public static Map<NormalizedSimpleStack, Long> graphMapperValues;
@@ -133,7 +133,7 @@ public final class EMCMapper
 		}
 
 
-		for (Map.Entry<NormalizedSimpleStack, Integer> entry: graphMapperValues.entrySet()) {
+		for (Map.Entry<NormalizedSimpleStack, Long> entry: graphMapperValues.entrySet()) {
 			if (entry.getKey() instanceof NormalizedSimpleStack.NSSItem)
 			{
 				NormalizedSimpleStack.NSSItem normStackItem = (NormalizedSimpleStack.NSSItem)entry.getKey();
@@ -141,7 +141,7 @@ public final class EMCMapper
 				if (obj != null)
 				{
 					int id = Item.itemRegistry.getIDForObject(obj);
-					emc.put(new SimpleStack(id, 1, normStackItem.damage), entry.getValue());
+					emc.put(new SimpleStack(id, 1, normStackItem.damage), Math.toIntExact(entry.getValue()));
 				} else {
 					PELogger.logWarn("Could not add EMC value for %s|%s. Can not get ItemID!", normStackItem.itemName, normStackItem.damage);
 				}

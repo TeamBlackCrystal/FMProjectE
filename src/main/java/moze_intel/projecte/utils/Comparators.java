@@ -15,21 +15,21 @@ public final class Comparators
 	public static final Comparator<ItemStack> ITEMSTACK_EMC_DESCENDING = new Comparator<ItemStack>()
 	{
 		@Override
-		public int compare(ItemStack s1, ItemStack s2) 
+		public int compare(ItemStack s1, ItemStack s2)
 		{
 			long emc1 = EMCHelper.getEmcValue(s1);
 			long emc2 = EMCHelper.getEmcValue(s2);
-			
+
 			if (emc1 < emc2)
 			{
 				return 1;
 			}
-			
+
 			if (emc1 > emc2)
 			{
 				return -1;
 			}
-			
+
 			return 0;
 		}
 	};
@@ -79,21 +79,21 @@ public final class Comparators
 		{
 			long emc1 = EMCMapper.getEmcValue(s1);
 			long emc2 = EMCMapper.getEmcValue(s2);
-			
+
 			if (emc1 < emc2)
 			{
 				return -1;
 			}
-			
+
 			if (emc1 > emc2)
 			{
 				return 1;
 			}
-			
+
 			return 0;
 		}
 	};
-	
+
 	public static final Comparator<Integer> INT_DESCENDING = new Comparator<Integer>()
 	{
 		@Override
@@ -103,12 +103,12 @@ public final class Comparators
 			{
 				return 1;
 			}
-			
+
 			if (i1 > 2)
 			{
 				return -1;
 			}
-			
+
 			return 0;
 		}
 	};
